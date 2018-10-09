@@ -37,6 +37,7 @@ executables:
     - impuls-api
     - serverless-haskell
     - aeson
+    - groom
     - flow
     - unordered-containers
   impuls-api-bridge:
