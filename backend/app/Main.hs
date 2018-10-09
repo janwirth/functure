@@ -6,6 +6,7 @@ import AWSLambda
 import AWSLambda.Events.S3Event
 import qualified Data.HashMap.Strict as HashMap
 import Flow
+import Lib
 
 instance Aeson.ToJSON Response where
     toEncoding = Aeson.genericToEncoding Aeson.defaultOptions
@@ -28,7 +29,7 @@ handler :: Aeson.Value -> IO Response
 handler evt = do
   putStrLn "This should go to logogs"
   p evt
-  pure <| Response 200 (Payload "yoooooo")
+  pure <| Response 200 (Payload (sayHello "You"))
 
 p :: Aeson.Value -> IO ()
 p val = do
@@ -37,9 +38,3 @@ p val = do
       print o
       print (HashMap.lookup "httpMethod" o)
     _ -> print "dope"
-
-fib 0 = 0
-fib 1 = 1
-
-fib n =
-  fib (n - 1) + fib(n - 2)
