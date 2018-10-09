@@ -30,7 +30,29 @@ handler :: Aeson.Value -> IO Response
 handler evt = do
   putStrLn "This should go to logogs"
   p evt
-  pure <| Response 200 (Payload (sayHello "You"))
+  pure <| Response 200 (Payload (sayHello (getNameFromEvt evt)))
+
+getParams :: Aeson.Value -> Maybe Aeson.Object
+getParams evt =
+  case evt of
+    Aeson.Object o -> case HashMap.lookup "pathParameters" o of
+      Just o2 -> case o2 of
+        Aeson.Object o3 -> Just o3
+        _ -> Nothing
+      _ -> Nothing
+    _ -> Nothing
+
+getNameFromEvt = getName . getParams
+
+getName :: Maybe Aeson.Object -> String
+getName params =
+  case params of
+    Just p -> case HashMap.lookup "name" p of
+      Just n -> case n of
+        Aeson.String ns -> show ns
+        _ -> "noString"
+      _ -> "noName"
+    _ -> "noParams"
 
 debug = putStrLn . groom
 
