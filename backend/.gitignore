@@ -1,0 +1,5 @@
+.stack-work/
+impuls-api.cabal
+*~
+impuls-api-exe
+impuls-api.js

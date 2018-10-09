@@ -1,0 +1,20 @@
+{
+  "name": "impuls-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": " nodemon --exec 'sls offline start' -e hs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^1.18.4",
+    "serverless": "^1.32.0",
+    "serverless-haskell": "^0.7.5",
+    "serverless-offline": "^3.25.17"
+  }
+}
