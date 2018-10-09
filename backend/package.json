@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "start": " nodemon --exec 'sls offline start' -e hs"
+    "start": " nodemon --exec 'stack build && npm run bridge && npm run serve' -e hs",
+    "serve": "sls offline --port 4000",
+    "bridge": "stack exec impuls-api-bridge | sed 's|Helpers|Decode.Pipeline|' | sed 's|bartavelle/json-helpers|NoRedInk/elm-json-decode-pipeline|' > ../frontend/src/Foo.elm"
   },
   "author": "",
   "license": "ISC",

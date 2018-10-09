@@ -65,4 +65,5 @@ packages:
 # compiler-check: newer-minor
 extra-deps:
 - serverless-haskell-0.7.5
-- elm-bridge-0.5.0
+- git: git@github.com:agrafix/elm-bridge.git
+  commit: d95b6bbb2607dd6ffc3e5cad83c034398b339749

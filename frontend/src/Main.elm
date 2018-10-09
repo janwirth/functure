@@ -2,6 +2,7 @@ module Main exposing (..)
 
 import Browser
 import View exposing (view)
+import Foo
 
 import Http
 import Json.Decode as Decode

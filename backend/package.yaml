@@ -37,7 +37,17 @@ executables:
     - impuls-api
     - serverless-haskell
     - aeson
+    - flow
     - unordered-containers
+  impuls-api-bridge:
+    main:                Main.hs
+    source-dirs:         bridge
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - elm-bridge
 
 tests:
   impuls-api-test:
